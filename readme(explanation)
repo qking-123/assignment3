@@ -1,0 +1,25 @@
+# TOPSIS - Multi-Criteria Decision Making Tool
+
+Hi there! 👋 This repository contains my implementation of the **TOPSIS** (Technique for Order of Preference by Similarity to Ideal Solution) algorithm. 
+
+This project was built as part of an assignment to explore how we can use Python to make complex decisions easier, package that logic for others to use, and even host it as a web service.
+
+## 🧐 What is TOPSIS?
+Imagine you want to buy a mobile phone. You have 5 options, and you are comparing them based on price, storage, camera quality, and looks.
+- **Price**: Less is better (Negative impact)
+- **Storage**: More is better (Positive impact)
+
+It gets hard to pick the "best" one when the criteria conflict. **TOPSIS** is a mathematical way to handle this. It calculates a score for each option based on how close it is to the "Ideal Best" value and how far it is from the "Ideal Worst" value.
+
+## 📂 Project Overview
+I have divided this project into three main parts:
+
+### 1. The Core Logic (Command Line Tool)
+First, I wrote a Python script (`topsis.py`) that performs the actual math.
+- **How I coded it:**
+  - I used **Pandas** to read the CSV files and **NumPy** for the heavy vector calculations.
+  - The script validates all inputs (checking if files exist, if columns are numeric, etc.) to make sure it doesn't crash unexpectedly.
+  - It calculates the Euclidean distance for each row and assigns a "Topsis Score" and a "Rank".
+- **Usage:**
+  ```bash
+  python topsis.py data.csv "1,1,1,1" "+,+,-,+" result.csv
